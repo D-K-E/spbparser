@@ -1,2 +1,10 @@
 # spbparser
-Header only Spectral Binary Format reader &amp; writter .spb
+Header only Spectral Binary Format utils.
+
+Just include header the required file from `ìnclude` folder.
+
+## Features
+
+- Reader
+
+- Writer

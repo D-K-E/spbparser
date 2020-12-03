@@ -13,14 +13,16 @@ Just include header the required file from `ìnclude` folder.
 File section                  | Bytes
 ----------------------------- | ----------
 File identifier ’SPB’         | 3
-Header Part                   | 24
+Header Part                   | 
 Image width                   | 4
 Image height                  | 4
 Number of spectral channels n | 4
 First wavelength              | 4
 Wavelength Resolution         | 4
 Last Wavelength               | 4
-Image Data                    | x*y*n*4
+Image Data                    | x\*y\*n\*4
+
+
 
 Image data is written to the file in column order and values
 are stored in little endian form.

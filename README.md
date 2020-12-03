@@ -14,8 +14,8 @@ File section                  | Bytes
 ----------------------------- | ----------
 File identifier ’SPB’         | 3
 Header Part                   | 
-Image width                   | 4
-Image height                  | 4
+Image width x                 | 4
+Image height y                | 4
 Number of spectral channels n | 4
 First wavelength              | 4
 Wavelength Resolution         | 4

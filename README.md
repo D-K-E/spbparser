@@ -8,6 +8,27 @@ Just include header the required file from `ìnclude` folder.
 - Reader
 - Writer
 
+## SPectral Binary Specification Summary
+
+File section                  | Bytes
+----------------------------- | ----------
+File identifier ’SPB’         | 3
+Header Part                   | 24
+Image width                   | 4
+Image height                  | 4
+Number of spectral channels n | 4
+First wavelength              | 4
+Wavelength Resolution         | 4
+Last Wavelength               | 4
+Image Data                    | x*y*n*4
+
+Image data is written to the file in column order and values
+are stored in little endian form.
+Dimensions (x,y and n) are stored in uint32-format
+and wavelength values in float32-format. Spectral image
+values are reflectance values stored as float32.
+
+
 ## Usage
 
 To read an spb file:

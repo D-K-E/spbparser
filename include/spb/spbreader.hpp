@@ -1,3 +1,5 @@
+#ifndef SPBREADER_HPP
+#define SPBREADER_HPP
 /**
 MIT License
 
@@ -41,7 +43,7 @@ SOFTWARE.
 #include <stdexcept>
 #include <string>
 //
-namespace spbparser {
+namespace spb {
 /**
 Spectral Binary File Format (.spb) Specification
 
@@ -170,3 +172,4 @@ void read_file(const char *fpath, uint32_t &width,
   file.close();
 }
 }
+#endif

@@ -3,6 +3,8 @@ Header only Spectral Binary Format utils.
 
 Just include header the required file from `ìnclude` folder.
 
+## Dependency
+
 ## Features
 
 - Reader

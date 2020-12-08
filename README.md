@@ -3,6 +3,10 @@ Header only Spectral Binary Format utils.
 
 Just include header the required file from `ìnclude` folder.
 
+## WARNING
+
+The parser is still in alpha stage. DO NOT use in production.
+
 ## Dependency
 
 ## Features
@@ -47,11 +51,12 @@ const char *path = "path/to/my/file.spb";
 uint32_t width, height, nb_channels;
 float first_wavelength, wavelength_resolution;
 float last_wavelength;
-float *data
 
-spb::read_file(path, width, height, nb_channels,
-               first_wavelength, wavelength_resolution,
-               last_wavelength, data);
+spb::read_header(path, width, height, nb_channels,
+                 first_wavelength, wavelength_resolution,
+                 last_wavelength);
+float *data = new float[width * height * nb_channels];
+spb::read_file(path, width, height, nb_channels, data);
 
 ```
 

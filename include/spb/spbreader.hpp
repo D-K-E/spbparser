@@ -151,6 +151,7 @@ void getImageData(std::ifstream &file, float *data,
     for (int i = 0; i < stride; i++) {
       arr[i] = buffer[pos + i];
     }
+    // TODO segfault probably out of bounds
     data[pos] = *(float *)arr;
   }
   delete[] buffer;

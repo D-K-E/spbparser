@@ -1,13 +1,25 @@
 # spbparser
 Header only Spectral Binary Format utils.
 
-Just include header the required file from `ìnclude` folder.
+Just include header of the required file from `ìnclude` folder. All files are
+provided with `spb` namespace.
 
 ## WARNING
 
-The parser is still in alpha stage. DO NOT use in production.
+The parser is tested in a little endian machine. Though we check if the case
+is otherwise for a given machine before proceeding further, it is not heavily
+tested.
+
+The specification of spb format does not allow heterogeneous spds to be
+serialized. Resampling of your original spds might be necessary before
+proceeding with serialization.
 
 ## Dependency
+
+- None. We are not even using STL or vectors. Probably can be ported to C with
+  a little work.
+
+- Should be mostly C++98 compliant as well.
 
 ## Features
 
@@ -70,7 +82,7 @@ c++
 
 const char *path = "path/to/my/outfile.spb";
 
-MyCustomSpb spectrum();
+MyCustomSpd spectrum();
 /**
 some operations ...
 .
@@ -84,7 +96,7 @@ uint32_t nb_spectral_channels =  spectrum.nb_channels();
 float first_wavelength = spectrum.first_wavelength();
 float wavelength_resolution = spectrum.wavelength_resolution();
 float last_wavelength = spectrum.last_wavelength();
-float *data;
+float *data = new float[width * height * nb_spectral_channels];
 spectrum.put_data(data);
 
 spb::write_file(path, width, height, nb_channels,

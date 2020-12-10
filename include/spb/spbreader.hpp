@@ -140,18 +140,20 @@ void getImageData(std::ifstream &file, float *data,
   file.seekg(HEADER_SIZE, file.end);
   int data_length = file.tellg();
   char *buffer = new char[data_length];
+  file.seekg(HEADER_SIZE);
   file.read(buffer, data_length);
+  file.close();
   //
   uint32_t stride = 4;
-  uint32_t total_size =
-      width * height * nb_channels * stride;
+  uint32_t total_size = width * height * nb_channels;
+  int char_counter = 0;
   //
-  for (uint32_t pos = 0; pos < total_size; pos += stride) {
+  for (uint32_t pos = 0; pos < total_size; pos++) {
     char arr[stride];
     for (int i = 0; i < stride; i++) {
-      arr[i] = buffer[pos + i];
+      arr[i] = buffer[char_counter + i];
     }
-    // TODO segfault probably out of bounds
+    char_counter += stride;
     data[pos] = *(float *)arr;
   }
   delete[] buffer;
